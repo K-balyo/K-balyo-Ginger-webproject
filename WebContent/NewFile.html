@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function hyper_radio(w) {
+    url=w;
+    window.open(url,'_blank','')
+}
+function random() {
+	 var ranval = Math.floor(Math.random()*20+1) 
+	 document.getElementById("test").value= ranval;
+	}
+	
+function a(){
+var arr = [1,15,8,69,45,23,37,19]; 
+document.getElementById("test1").value=arr.sort(function (a,b){ return a-b; });
+}
+
+function myFunction() {
+	  var num = document.getElementById("num").value;
+	  var result = "";
+	  for (var i = 1; i <= 9; ++i) {
+	   result += num + " * " + i + " = " + (num * i) + "<br>";
+	  }
+	  document.getElementById("result").innerHTML = result;
+	 }
+	 
+function bold() {
+    document.getElementById('ppp').innerHTML = '<b style="background-color: green">bold</b>';	
+
+}
+
+
+function btn(str) {
+	if(str == 'color'){
+		 var pp = document.getElementById('pp');
+		 pp.style.backgroundColor = "yellow";
+	}if(str == 'read'){
+		var read = document.getElementById('read');
+		read.style.color ="red";
+		read.readOnly=true;
+	} else if(str =='click'){
+		 var button = document.getElementById('btn');
+		 button.disabled = true;
+	}else if(str == 'check'){
+		for(var i=0; i<document.form.length; i++){
+			document.form.elements[i].checked=false;
+		}
+	}
+}
+</script>
+</head>
+<body>
+1.원하는 사이트를 선택하세요<br>
+
+<input type="radio" onClick="hyper_radio('http://naver.com')">네이버
+<input type="radio" onClick="hyper_radio('https://daum.net')">다음
+<input type="radio" onClick="hyper_radio('https://nate.com')">네이트<br>
+
+2.난수생성<br>
+
+<input type="button" value="난수생성" onClick="random()"><br>
+<input type="text" id="test" value=""><br>
+
+3.셀렉 태그 이용해서 페이지이동<br>
+
+<select onchange="window.open(value,'_blank');">
+
+<option >골라주세요</option>
+
+<option value="http://naver.com">네이버</option>
+
+<option value="http://daum.net">다음</option>
+
+<option value="https://nate.com">네이트</option>
+
+</select><br>
+
+ 
+4. 숫자 정렬 : 1,15,8,69,45,23,37,19<br>
+
+<input type="button" value="정렬" onClick="a()"><br>
+<input type="text" id="test1" value=""><br>
+
+5. 구구단 출력하기
+<div>
+구구단
+    <input type="text" id="num"> 단
+   <input type="button" value="출력" onclick="myFunction()">
+  <p id="result"></p>
+  </div>
+  
+6. button클릭시 아래 button을 disable 시키기<br>
+
+		 <input type="button" onclick="btn('click')"value="버튼"> <br>
+		 <input type="button" id="btn" value="난버튼이야"><br>
+	
+7. 두번째 배경색 변경하기
+		 <input type="button" onclick="btn('color')" value="버튼">
+		 <div style="background-color: pink">
+		 <p style="background-color: red">텍스트1</p><br>
+		 <p style="background-color: red" id="pp">텍스트2</p><br>
+		 <p style="background-color: red">텍스트3</p><br>
+		 <p style="background-color: red">텍스트4</p><br>
+		 </div>
+
+8. text에 bold효과주기
+	
+		 <input type="button" onclick="bold()" value="버튼">
+		 <div style="background-color: pink">
+		 <br>
+		 <p id="ppp">bold
+		 </div>
+	
+	
+9.text에 readonly, red효과주기
+		 <input type="button" onclick="btn('read')" value="버튼">
+		 <div style="background-color: pink">
+		 <br>
+		 <input type="text" id="read" value="읽기로 만들어라"  >
+		 <br>
+		 <br>
+		 </div>
+
+10. 체크박스 풀기
+		 <form name="form">
+		 <input type="button" onclick="btn('check')" value="버튼">
+		 <div style="background-color: pink">
+		 <input type="checkbox" />check1 <br>
+		 <input type="checkbox" />check2 <br>
+		 <input type="checkbox" />check3 <br>
+		 <input type="checkbox" />check4 <br>
+		 </div>
+		 </form>
+
+
+</body>
+</html>
